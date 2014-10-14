@@ -1,0 +1,28 @@
+c:\users\sieben\documents\visual studio 2010\Projects\BigTwoGame\bin\Debug\BigTwoGame.exe
+c:\users\sieben\documents\visual studio 2010\Projects\BigTwoGame\bin\Debug\BigTwoGame.pdb
+c:\users\sieben\documents\visual studio 2010\Projects\BigTwoGame\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\sieben\documents\visual studio 2010\Projects\BigTwoGame\obj\x86\Debug\BigTwoGame.exe
+c:\users\sieben\documents\visual studio 2010\Projects\BigTwoGame\obj\x86\Debug\BigTwoGame.pdb
+c:\users\sieben\documents\visual studio 2010\Projects\BigTwoGame\bin\Debug\BigTwo.dll
+c:\users\sieben\documents\visual studio 2010\Projects\BigTwoGame\bin\Debug\BigTwo.pdb
+D:\Projects\BigTwoGame\bin\Debug\BigTwoGame.exe
+D:\Projects\BigTwoGame\bin\Debug\BigTwoGame.pdb
+D:\Projects\BigTwoGame\bin\Debug\BigTwo.dll
+D:\Projects\BigTwoGame\bin\Debug\BigTwo.pdb
+D:\Projects\BigTwoGame\obj\x86\Debug\BigTwoGame.csprojResolveAssemblyReference.cache
+D:\Projects\BigTwoGame\obj\x86\Debug\BigTwoGame.exe
+D:\Projects\BigTwoGame\obj\x86\Debug\BigTwoGame.pdb
+D:\Projects_import\BigTwoGame\obj\x86\Debug\BigTwoGame.exe
+D:\Projects_import\BigTwoGame\obj\x86\Debug\BigTwoGame.pdb
+D:\Projects_import\BigTwoGame\bin\Debug\BigTwoGame.exe
+D:\Projects_import\BigTwoGame\bin\Debug\BigTwoGame.pdb
+D:\Projects_import\BigTwoGame\bin\Debug\BigTwo.dll
+D:\Projects_import\BigTwoGame\bin\Debug\BigTwo.pdb
+D:\Projects_import\BigTwoGame\obj\x86\Debug\BigTwoGame.csprojResolveAssemblyReference.cache
+D:\Projects_import\BigTwo\BigTwoGame\bin\Debug\BigTwoGame.exe
+D:\Projects_import\BigTwo\BigTwoGame\bin\Debug\BigTwoGame.pdb
+D:\Projects_import\BigTwo\BigTwoGame\bin\Debug\BigTwo.dll
+D:\Projects_import\BigTwo\BigTwoGame\bin\Debug\BigTwo.pdb
+D:\Projects_import\BigTwo\BigTwoGame\obj\x86\Debug\BigTwoGame.csprojResolveAssemblyReference.cache
+D:\Projects_import\BigTwo\BigTwoGame\obj\x86\Debug\BigTwoGame.exe
+D:\Projects_import\BigTwo\BigTwoGame\obj\x86\Debug\BigTwoGame.pdb
