@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using BigTwo.Players;
 using BigTwo.Types;
 
@@ -25,7 +26,7 @@ namespace BigTwo.Game
 
         public event EventHandler<BigTwoPlayerEventArgs> SequenceCompleted;
 
-        public event EventHandler<BigTwoPlayerHandEventArgs> PlayerTurn;
+        public event EventHandler<BigTwoPlayerHandEventArgs> PlayerPlayedTurn;
 
         public event EventHandler<BigTwoPlayerEventArgs> PlayerTurnEnd;
 
@@ -34,7 +35,7 @@ namespace BigTwo.Game
             get { return this.players; }
         }
 
-        public void DealHands()
+        private void DealHands()
         {
             // shuffle the deck before dealing
             deck.Shuffle();
@@ -78,8 +79,8 @@ namespace BigTwo.Game
 
                 PlayerTurnStart.Raise(this, new BigTwoPlayerEventArgs(activePlayer));
 
-                // check if the current cards are this players cards
-                // this means no one could beat that players hand
+                // If the active cards belong to the active player, It means that 
+                // all other players have passed meaning this player has won the sequence.
                 if (activeCards != null && activePlayer == activeCards.Player)
                 {
                     // clear the active card to start a new sequence.
@@ -89,31 +90,33 @@ namespace BigTwo.Game
 
                 PlayedCards nextCards = activePlayer.PlayTurn(activeCards);
 
-                PlayerTurn.Raise(this, new BigTwoPlayerHandEventArgs(activePlayer, nextCards));
+                PlayerPlayedTurn.Raise(this, new BigTwoPlayerHandEventArgs(activePlayer, nextCards));
 
                 // null is a passed turn
                 if (nextCards != null)
                 {
+                    // Ensure the cards the player is trying to play are valid
                     nextCards.Validate(activeCards);
 
                     activeCards = nextCards;
+
+                    // Remove the played cards from the players hand
                     activePlayer.RemoveCards(nextCards);
                 }
                 
 
-                // go to next player
+                // Advance to next player
                 activePlayerIndex++;
 
                 if (activePlayerIndex >= players.Count)
                 {
-                    // loop back to the first player
                     activePlayerIndex = 0;
                 }
 
                 PlayerTurnEnd.Raise(this, new BigTwoPlayerEventArgs(activePlayer));
             }
 
-            // game over!
+            // Get the winner and notify everyone that the game is over!
             IPlayer winner = players.Single(p => p.CardCount == 0);
 
             GameCompleted.Raise(this, new BigTwoPlayerEventArgs(winner));

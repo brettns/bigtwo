@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using BigTwo.Game;
 using BigTwo.Players;
 
@@ -16,19 +17,21 @@ namespace BigTwoConsole
             var players = new IPlayer[]
             {
                 //new HumanPlayer("You"),
-                new ComputerPlayer("Computer Player 1"),
-                new ComputerPlayer("Computer Player 2"),
-                new ComputerPlayer("Computer Player 3"),
-                new ComputerPlayer("Computer Player 4")
+                new ComputerPlayer("CPU 1"),
+                new ComputerPlayer("CPU 2"),
+                new ComputerPlayer("CPU 3"),
+                new ComputerPlayer("CPU 4")
             };
 
             game = new BigTwoGame(players);
             game.GameStarted += game_GameStarted;
             game.GameCompleted += game_GameCompleted;
             game.PlayerTurnStart += game_PlayerTurnStart;
-            game.PlayerTurn += game_PlayerTurn;
+            game.PlayerPlayedTurn += game_PlayerTurn;
             game.PlayerTurnEnd += game_PlayerTurnEnd;
             game.SequenceCompleted += game_SequenceCompleted;
+
+            Console.ReadKey();
             game.Start();
         }
 
@@ -42,10 +45,12 @@ namespace BigTwoConsole
             }
 
             Console.WriteLine();
+            Thread.Sleep(1500);
         }
 
         static void game_PlayerTurnEnd(object sender, BigTwoPlayerEventArgs e)
         {
+            Thread.Sleep(1000);
             //Console.WriteLine(e.Player.Name + " turn completed.");
         }
 
@@ -79,7 +84,12 @@ namespace BigTwoConsole
 
         static void game_GameCompleted(object sender, BigTwoPlayerEventArgs e)
         {
-            Console.WriteLine(e.Player.Name + " is the winner!");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("****************************************");
+            Console.WriteLine("Congratulations {0}! You are the winner!", e.Player.Name);
+            Console.WriteLine("****************************************");
+            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();

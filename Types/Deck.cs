@@ -38,19 +38,19 @@ namespace BigTwo.Types
                     var value = j + 1;
                     int gameValue;
 
-                    if (value == 1)
+                    switch (value)
                     {
-                        // aces are high
-                        gameValue = 14;
-                    }
-                    else if (value == 2)
-                    {
-                        // 2's are the highest valued cards in this game.
-                        gameValue = 15;
-                    }
-                    else
-                    {
-                        gameValue = value;
+                        case 1:
+                            // aces are high
+                            gameValue = 14;
+                            break;
+                        case 2:
+                            // 2's are the highest valued cards in this game.
+                            gameValue = 15;
+                            break;
+                        default:
+                            gameValue = value;
+                            break;
                     }
 
                     cards[index] = new Card(value, gameValue, suit);

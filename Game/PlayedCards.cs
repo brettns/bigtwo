@@ -41,14 +41,16 @@ namespace BigTwo.Game
 
                 if (nextCard.GameValue < activeCard.GameValue)
                 {
-                    throw new InvalidHandException(this, "Cannot play a lesser value card.");
+                    throw new InvalidHandException(this, "Cannot play a card of lesser value.");
                 }
 
                 if (nextCard.GameValue == activeCard.GameValue && nextCard.Suit < activeCard.Suit)
                 {
-                    throw new InvalidHandException(this, "Cannot play a lesser suited card.");
+                    throw new InvalidHandException(this, "Cannot play an equal value card of a lesser suit.");
                 }
             }
+
+            // todo: validate poker style hands
         }
     }
 }
